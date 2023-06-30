@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-1">
+      <h1>Car Form</h1>
+      <br />
+      <form class="form-horizontal" (ngSubmit)="save()" novalidate
+            [formGroup]="formGroup">
+        <fieldset>
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="id">
+              ID
+            </label>
+            <input class="form-control"
+                   id="id"
+                   type="text"
+                   placeholder="Check the IDs available, it needs to be unique"
+                   required
+                   pattern="^[0-9]+$"
+                   formControlName="id" />
+          </div>
+          <span class="help-block text-danger" *ngIf="f['id'].touched && f['id'].invalid">
+            <span *ngIf="f['id'].errors && f['id'].errors['required']">Required<br /></span>
+            <span *ngIf="f['id'].errors && f['id'].errors['pattern']">Only can use numbers<br /></span>
+          </span>
+          <br />
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="make">
+              Make
+            </label>
+            <input class="form-control"
+                   id="make"
+                   type="text"
+                   placeholder=""
+                   required
+                   pattern="^[A-Za-záéíóúñÁÉÍÓÚÑ ]+$"
+                   formControlName="make" />
+          </div>
+          <span class="help-block text-danger" *ngIf="f['make'].touched && f['make'].invalid">
+            <span *ngIf="f['make'].errors && f['make'].errors['required']">Required<br /></span>
+            <span *ngIf="f['make'].errors && f['make'].errors['pattern']">Only can use letters and spaces<br /></span>
+          </span>
+          <br />
+          <div class="form-group">
+            <label class="col-md-2 control-label" for="model">Model</label>
+            <input class="form-control"
+                   id="model"
+                   placeholder=""
+                   required
+                   type="text"
+                   pattern="^[A-Za-záéíóúñÁÉÍÓÚÑ ]+$"
+                   formControlName="model" />
+            <span class="help-block text-danger" *ngIf="f['model'].touched && f['model'].invalid">
+              <span *ngIf="f['model'].errors && f['model'].errors['required']">Required<br /></span>
+              <span *ngIf="f['model'].errors && f['model'].errors['pattern']">Only can use letters and spaces<br /></span>
+            </span>
+          </div>
+          <br />
+          <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+              <span>
+                <button class="btn btn-success" type="submit">
+                  Save
+                </button>
+              </span>
+              &nbsp;
+              <span>
+                <button class="btn btn-secondary" [routerLink]='["/car"]'>
+                  Cancel
+                </button>
+              </span>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
