@@ -1,0 +1,1 @@
+This is a simple project to interconnect a Web API with ASP.NET Core on the back an NoSQL Azure CosmosDB. For the front part, I've used Angular with some validations and extras.
